@@ -7,6 +7,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.sql.*;
+
+import javax.swing.JOptionPane;
 public class RegistrationController  {
 	final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 	
@@ -21,7 +23,7 @@ public class RegistrationController  {
 	 public void addUser(String name,String email, String password,String address,String gender, String phone )
 	 {
 		 Connection conn = null;
-		   Statement stmt = null;
+		 PreparedStatement stmt = null;
 		   try{
 		      //STEP 2: Register JDBC driver
 		      Class.forName("com.mysql.jdbc.Driver");
@@ -32,11 +34,17 @@ public class RegistrationController  {
 
 		      //STEP 4: Execute a query
 		      System.out.println("Creating statement...");
-		      stmt = conn.createStatement();
-		      String sql;
-		      sql = "Insert into users values(\"1001\" , \"" + name + "\",\"" +email+"\",\""+password+"\",\""+address+"\",\""+gender+"\",\""+phone+"\")";
 		      
-		      stmt.executeUpdate(sql);
+		      //Added Prepared Statement
+		      String insertSQL = "INSERT INTO users (Name, Email,password,Address,Gender,Phone) VALUES (?, ?,?,?,?,?)";
+		      stmt = conn.prepareStatement(insertSQL);
+		      stmt.setString(1, name);
+		      stmt.setString(2, email);
+		      stmt.setString(3, password);
+		      stmt.setString(4, address);
+		      stmt.setString(5, gender);
+		      stmt.setString(6, phone);
+		      stmt.executeUpdate();
  
 		      stmt.close();
 		      conn.close();
@@ -84,7 +92,8 @@ public class RegistrationController  {
 					System.out.println(theView.getEmail());
 					try{
 						try {
-			        	    URL myURL = new URL("http://www.avinashrmaharaj.com/sendingmail.php?website=Youhaveregistered&ipadd=0&email="+theModel.getEmail());
+							///MonChange
+			        	    URL myURL = new URL("http://www.avinashrmaharaj.com/sendingmail.php?website=You have sucessfully registered on the SellFort App&ipadd=0&email="+theModel.getEmail());
 			        	    URLConnection myURLConnection = myURL.openConnection();
 			        	    BufferedReader in = new BufferedReader(new InputStreamReader( myURLConnection.getInputStream()));
 		String inputLine;
