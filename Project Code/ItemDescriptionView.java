@@ -7,17 +7,20 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JPanel;
 import javax.swing.JRadioButtonMenuItem;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+
 public class ItemDescriptionView {
 
 	private JFrame frame;
 	private JTextField textField;
 private String itemid;
+
 	/**
 	 * Launch the application.
 	 */
@@ -26,7 +29,7 @@ private String itemid;
 	 * Create the application.
 	 */
 	public ItemDescriptionView() {
-		
+	
 		
 	}
 public void set_itemid(String id)
@@ -48,6 +51,13 @@ JLabel itemnamelabel ;
 		frame.getContentPane().setLayout(null);
 		frame.setVisible(true);
 		JButton btnNewButton = new JButton("Dashboard");
+		
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			BuyerDashboardView bv=new BuyerDashboardView();
+			frame.setVisible(false);
+			}
+		});
 		btnNewButton.setBounds(49, 57, 115, 29);
 		frame.getContentPane().add(btnNewButton);
 		
@@ -60,7 +70,13 @@ JLabel itemnamelabel ;
 		btnNewButton_1.setBounds(274, 57, 115, 29);
 		frame.getContentPane().add(btnNewButton_1);
 		
+		
 		JButton btnNewButton_2 = new JButton("Message Inbox");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+MessageBoxView mv=new MessageBoxView();
+			}
+		});
 		btnNewButton_2.setBounds(521, 57, 156, 29);
 		frame.getContentPane().add(btnNewButton_2);
 		
@@ -83,6 +99,7 @@ JLabel itemnamelabel ;
 			
 			WishListController wc=new WishListController();
 			wc.addToWishList(itemid);
+			JOptionPane.showMessageDialog(frame, "Item successfully added to Wish List");
 			}
 		});
 		btnNewButton_4.setBounds(418, 583, 195, 29);
@@ -96,20 +113,30 @@ JLabel itemnamelabel ;
 		lblNewLabel.setBounds(373, 180, 393, 254);
 		frame.getContentPane().add(lblNewLabel);
 		displayItem();
+		
+		JButton btnNewButton5 = new JButton("Close");
+		btnNewButton5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			
+			frame.setVisible(false);
+			}
+		});
+		btnNewButton5.setBounds(418, 620, 195, 29);
+		frame.getContentPane().add(btnNewButton5);
 	}
 	public void displayItem()
 	{
 		ItemController c1=new ItemController();
 		
-		List<Item> l1=c1.getItem(itemid);
+		Item i1=c1.getItem(itemid);
 byte[] img=null;
 		String itemname=null;
 		String itemdesc=null;
-		for(Item x:l1){
-			itemname=x.get_itemname();
-		itemdesc=x.get_itemdesc();
-		img=x.get_picture();
-		}
+		
+			itemname=i1.get_itemname();
+		itemdesc=i1.get_itemdesc();
+		img=i1.get_picture();
+	
 		
 		
 			itemnamelabel.setText("Item Name : "+itemname);

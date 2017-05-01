@@ -8,6 +8,8 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
+
 import java.awt.event.ActionListener;
 import java.util.List;
 import java.awt.event.ActionEvent;
@@ -47,15 +49,34 @@ JList list;
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setVisible(true);
-		JButton btnNewButton = new JButton("Dashboard");
+		JButton btnNewButton = new JButton("DashBoard");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			BuyerDashboardView bv=new BuyerDashboardView();
+			frame.setVisible(false);
+			}
+		});
 		btnNewButton.setBounds(90, 70, 115, 29);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("WishList");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				WishListView wv=new WishListView();
+				frame.setVisible(false);
+				
+			}
+		});
 		btnNewButton_1.setBounds(315, 70, 115, 29);
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Message Inbox");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			MessageBoxView mv=new MessageBoxView();
+			}
+		});
 		btnNewButton_2.setBounds(519, 70, 146, 29);
 		frame.getContentPane().add(btnNewButton_2);
 		
@@ -87,9 +108,25 @@ JList list;
 		JButton btnNewButton_4 = new JButton("Post your Bid");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			if(textField.getText()!=null){
 			BidController bc=new BidController();
-			bc.addBid(itemid,textField.getText() );
 			
+			bc.addBid(itemid,textField.getText() );
+			Message message=new Message();
+			Item i=new Item();
+			i.set_itemid(itemid);
+			i.set_itemprice(textField.getText());
+			message.setMessageType("bid");
+			message.setItem(i);
+			MessageController mc=new MessageController();
+			
+			mc.sendMessage(message);
+			JOptionPane.showMessageDialog(frame, "Bid Posted successfully");
+			displayBidInfo(model);
+			}
+			else{
+				JOptionPane.showMessageDialog(frame, "Please enter a Bid Price");
+			}
 			}
 		});
 		btnNewButton_4.setBounds(159, 618, 146, 29);
@@ -111,14 +148,14 @@ JList list;
 				model.addElement(x);
 			System.out.println(x);
 			}*/
-		displayBidInfo(model);
+		displayBidInfo(model);   //************View should get updated everytime
 	}
 	
 public void displayBidInfo(DefaultListModel model)
 {
 	BidController bc=new BidController();
 	 this.model=model;
-		 
+		 model.clear(); //*** clear first
 		list.setFont(new Font("Tahoma", Font.BOLD, 25));
 		//c1=new ItemController();
 		 

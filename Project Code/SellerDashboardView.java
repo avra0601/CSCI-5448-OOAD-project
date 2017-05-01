@@ -48,12 +48,20 @@ public class SellerDashboardView{
 			public void actionPerformed(ActionEvent e) {
 				
 				ItemView iv=new ItemView();
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton_2.setBounds(360, 223, 224, 29);
 		frame.getContentPane().add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("View Items Added");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				SellerItemsView iv=new SellerItemsView();
+				//frame.setVisible(false);
+			}
+		});
 		btnNewButton_3.setBounds(360, 306, 224, 29);
 		frame.getContentPane().add(btnNewButton_3);
 		

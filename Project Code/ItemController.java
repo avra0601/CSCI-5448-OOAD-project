@@ -17,10 +17,10 @@ List<String> categories=new ArrayList<String>();
  
 
 Connection conn = null;
-  Statement stmt = null;
-   final String USER = "root";
- final String DB_URL = "jdbc:mysql://localhost/test";
- final String PASS = "";
+Statement stmt = null;
+final String USER = "root";
+final String DB_URL = "jdbc:mysql://localhost/test";
+final String PASS = "";
  
  
  public void addItem(String cat,String name, String item_desc, String min_price,String file)
@@ -71,9 +71,9 @@ Connection conn = null;
      
  }
  
- public List<Item> getItem(String itemid)
+ public Item getItem(String itemid)
  {
-	 List<Item> item = new ArrayList<Item>();
+	 Item i=null;
 	 DatabaseController db=new DatabaseController();
 	 Connection conn=db.getConnection();
 	 Statement stmt=db.getStatement();
@@ -83,23 +83,24 @@ Connection conn = null;
 		ResultSet rs=stmt.executeQuery(sql);
 		while(rs.next())
 		{
-			Item i=new Item();
-			
+			 i=new Item();
+			String sellerid=rs.getString("userid");
 			String name = rs.getString("itemname");
 			String desc=rs.getString("itemdesc");
 			 byte[] img = rs.getBytes("picture");
 
 				i.set_itemname(name);
+				i.set_sellerid(sellerid);
 i.set_itemdesc(desc);
 i.set_picture(img);
-		item.add(i);
+		 
 		}
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
 	 
-	return item;
+	return i;
 	 
  }
  

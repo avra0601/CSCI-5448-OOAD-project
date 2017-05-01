@@ -52,8 +52,8 @@ public void sendMessage(Message message)
 	String senderid=null;
 	if(message.getMessageType().equals("bid"))
 	{
-		receiverid=item.get_sellerid();
-		 senderid=new User().getUserId();
+		receiverid=item.get_itemid();
+		senderid=new User().getUserId();
 		m1="Item ID : "+itemid+" User : " + senderid + " has bidded for the item " + item.get_itemname() + " Price : "+price;
 		
 	}

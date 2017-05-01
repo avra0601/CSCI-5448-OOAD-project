@@ -95,13 +95,15 @@ LoginController(LoginView v1)
 				JOptionPane.showMessageDialog(theView.frame, "You are successfully logged in");
 			   if(v1.sellerChecked())
 			   {
-				   System.out.println("Seller");
-			   SellerDashboardView sv=new SellerDashboardView();
+				  System.out.println("Seller");
+			      SellerDashboardView sv=new SellerDashboardView();
+			      theView.frame.setVisible(false);   /////*******Added to close the window
 			   }
 				   else if(v1.buyerChecked())
 			   {
 				   System.out.println("Buyer");
 			   BuyerDashboardView bv=new BuyerDashboardView();
+			   theView.frame.setVisible(false);  /////*******Added to close the window
 			   }
 				   else
 						JOptionPane.showMessageDialog(theView.frame, "Please Select an option");

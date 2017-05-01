@@ -42,6 +42,7 @@ public class BuyerDashboardView {
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				CategoryView iv=new CategoryView();
+				frame.setVisible(false);
 			}
 		});
 		btnNewButton_3.setBounds(371, 190, 232, 55);
@@ -56,6 +57,8 @@ public class BuyerDashboardView {
 			public void actionPerformed(ActionEvent e) {
 				
 				WishListView wv=new WishListView();
+				frame.setVisible(false);
+				
 			}
 		});
 		btnNewButton_5.setBounds(371, 385, 232, 44);

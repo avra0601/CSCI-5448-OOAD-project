@@ -8,6 +8,19 @@ public class Item {
 	String itemcat;
 	byte[] pic;
 	String paymentstatus;
+	String sellerid;
+
+	
+public String get_sellerid()
+{
+	return sellerid;
+	
+}
+public void set_sellerid(String sellerid)
+{
+	this.sellerid=sellerid;
+}
+	
 public String get_itemid()
 {
 	return itemid;

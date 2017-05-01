@@ -14,6 +14,7 @@ import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JTextPane;
@@ -29,8 +30,6 @@ public class ItemView {
 	/**
 	 * Launch the application.
 	 */
-	 
-
 	/**
 	 * Create the application.
 	 */
@@ -115,12 +114,27 @@ public class ItemView {
 			String min_price=price_field.getText();
 		
 			cat_controller.addItem(cat, item_name, item_desc, min_price,file);
+			JOptionPane.showMessageDialog(frame, "Item Added Successfully");
 			}
 		});
 		btnSubmit.setBounds(346, 478, 127, 51);
 		frame.getContentPane().add(btnSubmit);
 		
-	comboBox = new JComboBox();
+		JButton btnClear = new JButton("Clear");
+		btnClear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			name_field.setText("");
+			desc_field.setText("");
+			price_field.setText("");
+		
+			
+			}
+		});
+		btnClear.setBounds(346, 550, 127, 51);
+		frame.getContentPane().add(btnClear);
+		
+		comboBox = new JComboBox();
 		comboBox.setBounds(523, 143, 146, 26);
 		frame.getContentPane().add(comboBox);
 		
@@ -131,6 +145,8 @@ public class ItemView {
 		Button button = new Button("DashBoard");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				SellerDashboardView sv=new SellerDashboardView();
+				frame.setVisible(false);
 			}
 		});
 		button.setBounds(94, 44, 91, 27);
@@ -146,15 +162,6 @@ public class ItemView {
 		
 	
 		frame.getContentPane().add(lblLocation);
-		
-		Button button_3 = new Button("Wish List");
-		button_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			WishListView wv=new WishListView();
-			}
-		});
-		button_3.setBounds(259, 44, 137, 27);
-		frame.getContentPane().add(button_3);
 	 List<String> categories=new ArrayList<String>();
 		 
 	

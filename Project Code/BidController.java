@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BidController {
+	public String itemid;
 public List<String> getBidInformation(String itemid)
 {
 	List<String> bids=new ArrayList<String>();
@@ -22,6 +23,7 @@ public List<String> getBidInformation(String itemid)
 		{
 			String id=rs.getString("userid");
 			String price=rs.getString("bidprice");
+		 
 			String text="User : " + id +"    Bid Price : " + price;
 			bids.add(text);
 			System.out.println(text);

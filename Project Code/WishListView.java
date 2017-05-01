@@ -4,6 +4,7 @@ import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -44,12 +45,19 @@ public class WishListView {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			BuyerDashboardView bv=new BuyerDashboardView();
+			frame.setVisible(false);
 			}
+			
 		});
 		btnNewButton.setBounds(58, 56, 115, 29);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Message Inbox");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			MessageBoxView mv=new MessageBoxView();
+			}
+		});
 		btnNewButton_1.setBounds(437, 56, 155, 29);
 		frame.getContentPane().add(btnNewButton_1);
 		
@@ -74,7 +82,7 @@ public class WishListView {
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				
+	if(list.getSelectedIndex()!=-1){	
 	String id=list.getSelectedValue().toString().substring(0, 4);
 	System.out.println("before From cat " + id);
 	BidView bv=new BidView();
@@ -84,6 +92,11 @@ public class WishListView {
 	
 //	System.out.println("From cat " + id);
 //	v1.set_itemid(id);
+	frame.setVisible(false);
+	}
+	else{
+		JOptionPane.showMessageDialog(frame, "Please Select an item");
+	}
 			}
 		});
 		btnNewButton_3.setBounds(404, 532, 206, 29);

@@ -41,17 +41,22 @@ public class MessageBoxView {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setVisible(true);
-		JButton btnNewButton = new JButton("Dashboard");
-		btnNewButton.setBounds(58, 69, 115, 29);
+		JButton btnNewButton = new JButton("Close");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			frame.setVisible(false);
+			}
+		});
+		btnNewButton.setBounds(400, 69, 159, 29);
 		frame.getContentPane().add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Message Inbox");
+		/*JButton btnNewButton_1 = new JButton("Message Inbox");
 		btnNewButton_1.setBounds(512, 69, 159, 29);
-		frame.getContentPane().add(btnNewButton_1);
+		frame.getContentPane().add(btnNewButton_1);*/
 		
-		JButton btnNewButton_2 = new JButton("Logout");
+		/*JButton btnNewButton_2 = new JButton("Logout");
 		btnNewButton_2.setBounds(785, 69, 115, 29);
-		frame.getContentPane().add(btnNewButton_2);
+		frame.getContentPane().add(btnNewButton_2);*/
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(215, 155, 516, 464);
