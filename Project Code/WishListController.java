@@ -17,18 +17,40 @@ public class WishListController {
 public void addToWishList(String itemid)
 {
 	DatabaseController db=new DatabaseController();
-	String sql="Insert into wishlist values (" + new User().getUserId() + ",\""+itemid+"\")";
-	System.out.println(sql);
+	/////////////************* added check
+	String sql1 = "select * from wishlist where userid=" + new User().getUserId() + " and items=\""+itemid+"\";";
+	System.out.println(sql1);
+	ResultSet rs1 = null;
 	try {
 		Connection conn=db.getConnection();
 		Statement stmt=conn.createStatement();
 		
-		stmt.executeUpdate(sql);
+		 rs1 = stmt.executeQuery(sql1);
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-	
+	try {
+		if(rs1.isBeforeFirst()){
+			System.out.println("already present in the wishlist");
+		}
+		else{
+		String sql="Insert into wishlist values (" + new User().getUserId() + ",\""+itemid+"\")";
+		System.out.println(sql);
+		try {
+			Connection conn=db.getConnection();
+			Statement stmt=conn.createStatement();
+			
+			stmt.executeUpdate(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 }
 
 public List<Item> getWishListItems()
