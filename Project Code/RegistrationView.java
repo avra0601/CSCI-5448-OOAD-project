@@ -13,7 +13,7 @@ public class RegistrationView extends JFrame
   { 
 
 	
-    JLabel l1, l2, l3, l4, l5, l6, l7, l8;
+    JLabel l1, l2, l3, l4, l5, l6, l7, l8,l9;
 
     JTextField tf1, tf2, tf5, tf6, tf7;
 
@@ -59,6 +59,9 @@ public class RegistrationView extends JFrame
         l7 = new JLabel("Gender:");
 
         l8 = new JLabel("Phone No:"); 
+        
+        l9 =  new JLabel("Registration Successful");
+        l9.setVisible(false);
 
         tf1 = new JTextField();
 
@@ -121,7 +124,10 @@ public class RegistrationView extends JFrame
 
         btn2.setBounds(170, 350, 100, 30);
         
-        btn3.setBounds(50, 500, 100, 30);
+        l9.setBounds(300 , 450 , 200 , 30);
+        
+        btn3.setBounds(50, 520, 100, 30);
+        
         
 
  
@@ -161,6 +167,7 @@ public class RegistrationView extends JFrame
         add(btn2);
         
         add(btn3);
+        add(l9);
 
     }
 	void addSubmitListener(ActionListener listenForCalcButton){

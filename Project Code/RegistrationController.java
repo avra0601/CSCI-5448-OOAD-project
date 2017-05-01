@@ -100,16 +100,20 @@ public class RegistrationController  {
 		while ((inputLine = in.readLine()) != null) 
 		    System.out.println(inputLine);
 		in.close();
+		theView.l9.setVisible(true);
+		
 			        	} 
 			        	catch (MalformedURLException e1) { 
 			        	    // new URL() failed
 			        	    // ...
 			        		System.out.println("Failed");
+			        		theView.l9.setText("Incorrect Entries");
 			        	} 
 			        	catch (IOException e2) {   
 			        	    // openConnection() failed
 			        	    // ...
 			        		System.out.println("IO");
+			        		theView.l9.setText("Incorrect Entries");
 			        	}
 					
 					}
