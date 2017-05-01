@@ -12,11 +12,12 @@ import java.awt.event.ActionListener;
 public class RegistrationView extends JFrame
   { 
 
+	
     JLabel l1, l2, l3, l4, l5, l6, l7, l8;
 
     JTextField tf1, tf2, tf5, tf6, tf7;
 
-    JButton btn1, btn2;
+    JButton btn1, btn2 , btn3;
 
     JPasswordField p1, p2;
 
@@ -78,6 +79,8 @@ public class RegistrationView extends JFrame
         btn1 = new JButton("Submit");
 
         btn2 = new JButton("Clear");
+        
+        btn3= new JButton("close");
 
  
 
@@ -117,6 +120,9 @@ public class RegistrationView extends JFrame
         btn1.setBounds(50, 350, 100, 30);
 
         btn2.setBounds(170, 350, 100, 30);
+        
+        btn3.setBounds(50, 500, 100, 30);
+        
 
  
 
@@ -153,11 +159,25 @@ public class RegistrationView extends JFrame
         add(btn1);
 
         add(btn2);
+        
+        add(btn3);
 
     }
 	void addSubmitListener(ActionListener listenForCalcButton){
 		
 		btn1.addActionListener(listenForCalcButton);
+		
+	}
+	 //********* Added listener for clear
+	void clearListener(ActionListener listenForCalcButton){
+		
+		btn2.addActionListener(listenForCalcButton);
+		
+	}
+	
+	void closeListener(ActionListener listenForCalcButton){
+		
+		btn3.addActionListener(listenForCalcButton);
 		
 	}
 

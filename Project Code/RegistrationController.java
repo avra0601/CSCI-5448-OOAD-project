@@ -121,6 +121,37 @@ public class RegistrationController  {
 					}
 				}
 			});
+			
+			///********Added clear
+			this.theView.clearListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+
+					theView.tf1.setText("");
+					theView.tf2.setText("");
+					theView.tf5.setText("");
+					theView.tf6.setText("");
+					theView.tf7.setText("");
+					theView.p1.setText("");
+					theView.p2.setText("");
+					
+				}
+			});
+			
+			////****** Added Close
+			this.theView.closeListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+
+					theView.setVisible(false);
+					
+				}
+			});
+
 		}
 		
 	 
