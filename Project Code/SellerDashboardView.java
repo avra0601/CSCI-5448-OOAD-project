@@ -42,7 +42,13 @@ public class SellerDashboardView{
 		JButton btnNewButton_1 = new JButton("Logout");
 		btnNewButton_1.setBounds(748, 78, 115, 29);
 		frame.getContentPane().add(btnNewButton_1);
-		
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				frame.setVisible(false);
+				LoginView lv=new LoginView();	LoginController loginController=new LoginController(lv);
+			}
+		});
 		JButton btnNewButton_2 = new JButton("Add a New Item");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
