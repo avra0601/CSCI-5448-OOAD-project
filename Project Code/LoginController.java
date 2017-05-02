@@ -24,19 +24,15 @@ public class LoginController {
 		  
 		      Class.forName("com.mysql.jdbc.Driver");
 
-		      conn = (Connection) DriverManager.getConnection(DB_URL, USER, PASS);
-		      System.out.println("Connected database successfully...");
+		      conn = (Connection) DriverManager.getConnection(DB_URL, USER, PASS); 
 		      
-		      //STEP 4: Execute a query
-		      System.out.println("Creating statement...");
-		      stmt = (Statement) conn.createStatement();
+		        stmt = (Statement) conn.createStatement();
 
 		      String sql = "SELECT userid from users where userid=\""+theView.getUserName()+"\" and password=\""+theView.getPassword()+"\"";
 		      ResultSet rs = stmt.executeQuery(sql);
-		      //STEP 5: Extract data from result set
-		      
+		       
 		      if(rs.next()){
-		         //Retrieve by column name
+		         
 		    //	  JOptionPane.showMessageDialog(theView.frame, "You are successfully logged in");
 		     User u=new User();
 		     u.setUserId(user);
@@ -81,9 +77,7 @@ LoginController(LoginView v1)
 	this.theView=v1;
 	
 	this.theView.addLoginListener(new ActionListener() {
-		
-		
-		
+	 	
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
@@ -97,13 +91,13 @@ LoginController(LoginView v1)
 			   {
 				  System.out.println("Seller");
 			      SellerDashboardView sv=new SellerDashboardView();
-			      theView.frame.setVisible(false);   /////*******Added to close the window
+			      theView.frame.setVisible(false);    
 			   }
 				   else if(v1.buyerChecked())
 			   {
 				   System.out.println("Buyer");
 			   BuyerDashboardView bv=new BuyerDashboardView();
-			   theView.frame.setVisible(false);  /////*******Added to close the window
+			   theView.frame.setVisible(false);   
 			   }
 				   else
 						JOptionPane.showMessageDialog(theView.frame, "Please Select an option");
