@@ -17,6 +17,7 @@ public class SellFort
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
  /*
 		JFrame f=new JFrame();//creating instance of JFrame
 		JTextField t1=new JTextField("");	
@@ -73,6 +74,7 @@ in.close();
 		// TODO Auto-generated method stub
 		
 	}*/
+	//	SellerInfoView sv1=new SellerInfoView();
 		LoginView rView1=new LoginView();
 		LoginController loginController=new LoginController(rView1);
 		//RegistrationView rView=new RegistrationView();
