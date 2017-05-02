@@ -105,9 +105,9 @@ void makeVisible() {
 		group.add(rdbtnBuyer);
 		
 	}
-	void addLoginListener(ActionListener listenForCalcButton){
+	void addLoginListener(ActionListener listenForLoginButton){
 		
-		btnLogin.addActionListener(listenForCalcButton);
+		btnLogin.addActionListener(listenForLoginButton);
 		
 	}
 	String getUserName()

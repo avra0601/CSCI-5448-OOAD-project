@@ -43,6 +43,15 @@ public class BuyerDashboardView {
 		btnNewButton_2.setBounds(814, 56, 115, 29);
 		frame.getContentPane().add(btnNewButton_2);
 		
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			
+				frame.setVisible(false);
+			LoginView lv=new LoginView();
+			LoginController loginController=new LoginController(lv);
+			}
+			
+		});
 		JButton btnNewButton_3 = new JButton("Buy Items");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -56,6 +65,15 @@ public class BuyerDashboardView {
 		JButton btnNewButton_4 = new JButton("Items Bought");
 		btnNewButton_4.setBounds(371, 278, 232, 55);
 		frame.getContentPane().add(btnNewButton_4);
+		btnNewButton_4.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				BuyerItemsView bv=new BuyerItemsView();
+				
+			}
+		});
 		
 		JButton btnNewButton_5 = new JButton("WishList");
 		btnNewButton_5.addActionListener(new ActionListener() {

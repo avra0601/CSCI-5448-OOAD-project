@@ -46,10 +46,11 @@ public class BuyerItemsView {
 		BuyerInfoController bi=new BuyerInfoController();
 		model=new DefaultListModel();
 		list = new JList(model);
-		List<String> l1=bi.getItemsBought(new User().getUserId());
+		List<Item> l1=bi.getItemsBought(new User().getUserId());
 		System.out.println("got items");
 		
-		for(String x:l1){
+		for(Item t:l1){
+			String x="Item : "+t.get_itemid()+" Item Name : "+t.get_itemname();
 			model.addElement(x);
 		System.out.println(x);
 		}
