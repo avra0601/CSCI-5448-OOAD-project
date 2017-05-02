@@ -26,17 +26,14 @@ public class RegistrationController  {
 		 Connection conn = null;
 		 PreparedStatement stmt = null;
 		   try{
-		      //STEP 2: Register JDBC driver
+		       
 		      Class.forName("com.mysql.jdbc.Driver");
 
-		      //STEP 3: Open a connection
-		      System.out.println("Connecting to database...");
+		       
+		       
 		      conn = DriverManager.getConnection(DB_URL,USER,PASS);
 
-		      //STEP 4: Execute a query
-		      System.out.println("Creating statement...");
 		      
-		      //Added Prepared Statement
 		      String insertSQL = "INSERT INTO users (Name, Email,password,Address,Gender,Phone) VALUES (?, ?,?,?,?,?)";
 		      stmt = conn.prepareStatement(insertSQL);
 		      stmt.setString(1, name);
@@ -74,13 +71,9 @@ public class RegistrationController  {
 	
 	 
 		public RegistrationController(RegistrationView theView,RegistrationModel theModel) {
-			this.theModel = theModel;
-		 
-			this.theView=theView;
-			// Tell the View that when ever the calculate button
-			// is clicked to execute the actionPerformed method
-			// in the CalculateListener inner class
 			
+			this.theView=theView;
+			 
 			this.theView.addSubmitListener(new ActionListener() {
 				
 				@Override
@@ -89,14 +82,12 @@ public class RegistrationController  {
 
 					int firstNumber, secondNumber = 0;
 					addUser(theView.getUserName(),theView.getEmail(),theView.getPassowrd(), theView.getAddress(),theView.getEmail(),theView.getPhone());
-					// Surround interactions with the view with
-					// a try block in case numbers weren't
-					// properly entered
+					  
 					theModel.setEmail(theView.getEmail());
 					System.out.println(theView.getEmail());
 					try{
 						try {
-							///MonChange
+							 
 			        	    URL myURL = new URL("http://www.avinashrmaharaj.com/sendingmail.php?website=You have sucessfully registered on the SellFort App&ipadd=0&email="+theModel.getEmail());
 			        	    URLConnection myURLConnection = myURL.openConnection();
 			        	    BufferedReader in = new BufferedReader(new InputStreamReader( myURLConnection.getInputStream()));
@@ -108,14 +99,12 @@ public class RegistrationController  {
 		
 			        	} 
 			        	catch (MalformedURLException e1) { 
-			        	    // new URL() failed
-			        	    // ...
+			        	    
 			        		System.out.println("Failed");
 			        		theView.l9.setText("Incorrect Entries");
 			        	} 
 			        	catch (IOException e2) {   
-			        	    // openConnection() failed
-			        	    // ...
+			        	     
 			        		System.out.println("IO");
 			        		theView.l9.setText("Incorrect Entries");
 			        	}
