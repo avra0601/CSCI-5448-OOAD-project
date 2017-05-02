@@ -71,7 +71,7 @@ public void sendMessage(Message message)
 			
 			receiverid=message.getItem().get_sellerid();
 			senderid=new User().getUserId();
-			m1="Barter ItemId "+temp.get_itemid()+" in excahnge for: " + temp.get_itemname() +" : " + temp.get_itemdesc() + " : " + temp.get_itemprice();
+			m1="Barter ItemId "+temp.get_itemid()+" User ID: "+senderid+" in exchange for: " + temp.get_itemname() +" : " + temp.get_itemdesc() + " : " + temp.get_itemprice();
 			System.out.println("item id in messagecontroller view");
 			System.out.println(temp.get_itemid());
 		}

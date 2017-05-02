@@ -71,7 +71,13 @@ public class PayByBarterView {
 		JButton btnNewButton_3 = new JButton("Logout");
 		btnNewButton_3.setBounds(807, 59, 115, 29);
 		frame.getContentPane().add(btnNewButton_3);
-		
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				frame.setVisible(false);
+				LoginView lv=new LoginView();	LoginController loginController=new LoginController(lv);
+			}
+		});
 		JLabel lblNewLabel_1 = new JLabel("Item Name");
 		lblNewLabel_1.setBounds(122, 207, 120, 20);
 		frame.getContentPane().add(lblNewLabel_1);

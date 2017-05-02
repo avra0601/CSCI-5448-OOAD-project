@@ -76,7 +76,8 @@ public class MessageBoxView {
 		 		if(selected_msg.getMessageType().equals("bid"))
 				{
 					btnSelectWinner.setVisible(true);
-					
+					btnNewButton3.setVisible(false);
+					btnNewButton4.setVisible(false);
 					
 				}
 		 		else if(selected_msg.getMessageType().equals("win"))
@@ -84,11 +85,13 @@ public class MessageBoxView {
 					
 					btnSelectWinner.setVisible(false);
 					btnNewButton3.setVisible(true);
+					btnNewButton4.setVisible(false);
 					
 				}
 		 		else if(selected_msg.getMessageType().equals("barter")){
 		 			btnSelectWinner.setVisible(false);
 					btnNewButton4.setVisible(true);
+					btnNewButton3.setVisible(false);
 		 		}
 		 		
 		 	}
@@ -156,12 +159,15 @@ public class MessageBoxView {
 			    
 			    System.out.println(list.getSelectedValue().toString().substring(14,18));
 			    
-				String id=list.getSelectedValue().toString().substring(13,17);
+				String id=list.getSelectedValue().toString().substring(14,18);
+				String uid=list.getSelectedValue().toString().substring(28,33);
 				PaymentController pc = new PaymentController();
 				pc.updatePaymentStatus(id);
 				
 				System.out.println("Sold Item");
 				System.out.println(id);
+				System.out.println(uid);
+				pc.updateItemsBought(uid, id);
 				
 			}
 		});

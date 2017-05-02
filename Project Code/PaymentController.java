@@ -8,7 +8,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PaymentController {
-	
+	public void updateItemsBought(String buyerid,String itemid)
+	{
+		String user=buyerid;
+		DatabaseController db=new DatabaseController();
+		Connection conn=db.getConnection();
+		try {
+			Statement stmt=conn.createStatement();
+			String sql="Insert into items_bought values(\""+user+"\",\""+itemid+"\");";
+			stmt.executeUpdate(sql);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 	public void updatePaymentStatus(String itemid)  
 	{
 		
@@ -18,7 +33,7 @@ public class PaymentController {
 		Statement stmt2 = null;
 		try {
 			stmt = conn.createStatement();
-			//stmt2 = conn.createStatement();
+			
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -35,6 +50,13 @@ public class PaymentController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		ItemController ic = new ItemController();
+		Item i = ic.getItem(itemid);
+		System.out.println("vishnu");
+		System.out.println(i.get_itemid());
+		i.set_itemstatus(0);
+		
 
 	}
 
