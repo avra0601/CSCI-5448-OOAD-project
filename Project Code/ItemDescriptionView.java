@@ -83,7 +83,14 @@ MessageBoxView mv=new MessageBoxView();
 		JButton btnNewButton_3 = new JButton("Logout");
 		btnNewButton_3.setBounds(811, 57, 115, 29);
 		frame.getContentPane().add(btnNewButton_3);
-		
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			 
+				frame.setVisible(false);
+			LoginView lv=new LoginView();
+			LoginController loginController=new LoginController(lv);
+			}
+		});
 		 lblNewLabel_1 = new JLabel("Item Description");
 		lblNewLabel_1.setBounds(158, 496, 156, 20);
 		frame.getContentPane().add(lblNewLabel_1);

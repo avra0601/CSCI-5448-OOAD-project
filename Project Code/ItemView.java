@@ -159,7 +159,15 @@ public class ItemView {
 		Button button_2 = new Button("Logout");
 		button_2.setBounds(632, 44, 91, 27);
 		frame.getContentPane().add(button_2);
-		
+		button_2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				LoginView lv=new LoginView();
+				LoginController loginController=new LoginController(lv);
+			}
+		});
 	
 		frame.getContentPane().add(lblLocation);
 	 List<String> categories=new ArrayList<String>();

@@ -64,7 +64,13 @@ public class WishListView {
 		JButton btnNewButton_2 = new JButton("Logout");
 		btnNewButton_2.setBounds(807, 56, 115, 29);
 		frame.getContentPane().add(btnNewButton_2);
-		
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				frame.setVisible(false);
+				LoginView lv=new LoginView();	LoginController loginController=new LoginController(lv);
+			}
+		});
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(233, 244, 446, 248);
 		frame.getContentPane().add(scrollPane);

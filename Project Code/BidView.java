@@ -77,12 +77,20 @@ JList list;
 			MessageBoxView mv=new MessageBoxView();
 			}
 		});
+		
+		
 		btnNewButton_2.setBounds(519, 70, 146, 29);
 		frame.getContentPane().add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("Logout");
 		btnNewButton_3.setBounds(775, 70, 115, 29);
 		frame.getContentPane().add(btnNewButton_3);
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			LoginView l1=new LoginView();
+			LoginController loginController=new LoginController(l1);
+			}
+		});
 		
 		JLabel lblNewLabel = new JLabel("Bid  Information");
 		lblNewLabel.setBounds(391, 136, 146, 20);
@@ -135,6 +143,16 @@ JList list;
 		JButton btnNewButton_5 = new JButton("View Seller Information");
 		btnNewButton_5.setBounds(530, 618, 217, 29);
 		frame.getContentPane().add(btnNewButton_5);
+		btnNewButton_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			ItemController ic=new ItemController();
+			Item i=ic.getItem(itemid);
+			String user=i.get_sellerid();
+			SellerInfoView v1=new SellerInfoView();
+			v1.set_userid(user);
+			}
+		});
 		System.out.println(id);
 	/*	BidController bc=new BidController();
 		 

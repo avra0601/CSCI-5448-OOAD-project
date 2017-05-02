@@ -21,7 +21,7 @@ public List<Item> getItems(String cat)
 		// TODO Auto-generated catch block
 		e1.printStackTrace();
 	}
-	String sql="SELECT itemid,itemname,itemdesc FROM item where Category=\"" +cat+"\";";
+	String sql="SELECT itemid,itemname,itemdesc FROM item where Category=\"" +cat+"\" and status="+1+";";
 	ResultSet rs;
 	try {
 	 rs=stmt.executeQuery(sql);

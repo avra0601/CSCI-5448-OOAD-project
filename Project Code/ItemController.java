@@ -91,7 +91,7 @@ final String PASS = "";
 			 byte[] img = rs.getBytes("picture");
 			 
 			 System.out.println(sellerid);
-
+i.set_itemid(itemid);
 			i.set_itemname(name);
 			i.set_sellerid(sellerid);
 			i.set_itemdesc(desc);
