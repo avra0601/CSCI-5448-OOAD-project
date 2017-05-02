@@ -31,6 +31,11 @@ public class BuyerDashboardView {
 		frame.getContentPane().setLayout(null);
 		frame.setVisible(true);
 		JButton btnNewButton_1 = new JButton("Message Inbox");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			MessageBoxView mv=new MessageBoxView();
+			}
+		});
 		btnNewButton_1.setBounds(594, 56, 171, 29);
 		frame.getContentPane().add(btnNewButton_1);
 		
@@ -65,6 +70,14 @@ public class BuyerDashboardView {
 		frame.getContentPane().add(btnNewButton_5);
 		
 		JButton btnNewButton_6 = new JButton("Update Profile");
+		btnNewButton_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				UpdateProfileView wv=new UpdateProfileView();
+				frame.setVisible(false);
+				
+			}
+		});
 		btnNewButton_6.setBounds(371, 489, 232, 44);
 		frame.getContentPane().add(btnNewButton_6);
 	}

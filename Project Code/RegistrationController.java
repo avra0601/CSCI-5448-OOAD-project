@@ -18,6 +18,7 @@ public class RegistrationController  {
 	  final String PASS = "";
 	
 		private RegistrationView theView;
+		
 
 		private RegistrationModel theModel;
 	 public void addUser(String name,String email, String password,String address,String gender, String phone )
@@ -69,6 +70,9 @@ public class RegistrationController  {
 		      }//end finally try
 		   }//end try    
 	 }
+	 
+	
+	 
 		public RegistrationController(RegistrationView theView,RegistrationModel theModel) {
 			this.theModel = theModel;
 		 
@@ -125,6 +129,9 @@ public class RegistrationController  {
 					}
 				}
 			});
+			
+			
+			
 			
 			///********Added clear
 			this.theView.clearListener(new ActionListener() {

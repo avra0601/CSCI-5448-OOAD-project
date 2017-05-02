@@ -41,7 +41,7 @@ public void sendMessage(Message message)
 	String price=temp.get_itemprice();
 	String itemid=temp.get_itemid();
 	ItemController ic=new ItemController();
-	Item i=new Item();
+	//Item i=new Item();
 	
 	Item  item=ic.getItem(itemid);
 	
@@ -52,8 +52,10 @@ public void sendMessage(Message message)
 	String senderid=null;
 	if(message.getMessageType().equals("bid"))
 	{
-		receiverid=item.get_itemid();
+		//receiverid=item.get_itemid();
+		receiverid=item.get_sellerid();
 		senderid=new User().getUserId();
+		System.out.println(receiverid);
 		m1="Item ID : "+itemid+" User : " + senderid + " has bidded for the item " + item.get_itemname() + " Price : "+price;
 		
 	}
@@ -62,9 +64,17 @@ public void sendMessage(Message message)
 			receiverid=message.getItem().get_sellerid();
 			 senderid=new User().getUserId();
 	
-		m1="Congratulations You have won the bid for the item " + item.get_itemname();
+		m1="Item ID : "+itemid+": Congratulations You have won the bid for the item " + item.get_itemname();
 	
 	}
+		else if(message.getMessageType().equals("barter")){
+			
+			receiverid=message.getItem().get_sellerid();
+			senderid=new User().getUserId();
+			m1="Barter ItemId "+temp.get_itemid()+" in excahnge for: " + temp.get_itemname() +" : " + temp.get_itemdesc() + " : " + temp.get_itemprice();
+			System.out.println("item id in messagecontroller view");
+			System.out.println(temp.get_itemid());
+		}
 		message.setMessage(m1);
 	try {
 		Statement stmt=conn.createStatement();

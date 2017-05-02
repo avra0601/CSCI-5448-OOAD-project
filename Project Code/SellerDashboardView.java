@@ -66,6 +66,11 @@ public class SellerDashboardView{
 		frame.getContentPane().add(btnNewButton_3);
 		
 		JButton btnNewButton_4 = new JButton("Update Profile");
+		/*btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			UpdateProfileView up =new UpdateProfileView();
+			}
+		});*/
 		btnNewButton_4.setBounds(360, 416, 224, 29);
 		frame.getContentPane().add(btnNewButton_4);
 	}

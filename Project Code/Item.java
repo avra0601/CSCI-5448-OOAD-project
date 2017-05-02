@@ -9,6 +9,7 @@ public class Item {
 	byte[] pic;
 	String paymentstatus;
 	String sellerid;
+	boolean avail_status;
 
 	
 public String get_sellerid()
@@ -19,6 +20,7 @@ public String get_sellerid()
 public void set_sellerid(String sellerid)
 {
 	this.sellerid=sellerid;
+	System.out.println(sellerid);
 }
 	
 public String get_itemid()

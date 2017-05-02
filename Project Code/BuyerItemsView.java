@@ -1,23 +1,17 @@
-import java.awt.EventQueue;
-import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 
-import javax.swing.JFrame;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
-import javax.swing.JScrollPane;
+import javax.swing.JFrame;
 import javax.swing.JList;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.event.ListSelectionEvent;
+import javax.swing.JScrollPane;
 
-public class SellerItemsView {
-	
-	
+public class BuyerItemsView {
 	private JFrame frame;
 
-	public SellerItemsView() {
+	public BuyerItemsView() {
 		initialize();
 	}
 	JButton btnSelectWinner;
@@ -49,10 +43,10 @@ public class SellerItemsView {
 		frame.getContentPane().add(scrollPane);
 		
 		
-		SellerInfoController si=new SellerInfoController();
+		BuyerInfoController bi=new BuyerInfoController();
 		model=new DefaultListModel();
 		list = new JList(model);
-		List<String> l1=si.getItemsAdded(new User().getUserId());
+		List<String> l1=bi.getItemsBought(new User().getUserId());
 		System.out.println("got items");
 		
 		for(String x:l1){
