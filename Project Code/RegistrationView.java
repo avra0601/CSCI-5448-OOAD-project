@@ -15,7 +15,7 @@ public class RegistrationView extends JFrame
 	
     JLabel l1, l2, l3, l4, l5, l6, l7, l8,l9;
 
-    JTextField tf1, tf2, tf5, tf6, tf7;
+    JTextField textField1, textField2, textField5, textField6, textField7;
 
     JButton btn1, btn2 , btn3;
 
@@ -33,17 +33,11 @@ public class RegistrationView extends JFrame
         setLayout(null);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        setTitle("Registration Form in Java");
-
+ 
  
 
-        l1 = new JLabel("Registration Form in Windows Form:");
-
-        l1.setForeground(Color.blue);
-
-        l1.setFont(new Font("Serif", Font.BOLD, 20));
-
+        l1 = new JLabel("Registration");
+ 
  
 
         l2 = new JLabel("Name:");
@@ -63,19 +57,19 @@ public class RegistrationView extends JFrame
         l9 =  new JLabel("Registration Successful");
         l9.setVisible(false);
 
-        tf1 = new JTextField();
+        textField1 = new JTextField();
 
-        tf2 = new JTextField();
+        textField2 = new JTextField();
 
         p1 = new JPasswordField();
 
         p2 = new JPasswordField();
 
-        tf5 = new JTextField();
+        textField5 = new JTextField();
 
-        tf6 = new JTextField();
+        textField6 = new JTextField();
 
-        tf7 = new JTextField();
+        textField7 = new JTextField();
 
  
 
@@ -92,21 +86,21 @@ public class RegistrationView extends JFrame
 
         l1.setBounds(100, 30, 400, 30);
 
-        l2.setBounds(80, 70, 200, 30);
+        l2.setBounds(90, 70, 200, 30);
 
-        l3.setBounds(80, 110, 200, 30);
+        l3.setBounds(90, 110, 200, 30);
 
-        l4.setBounds(80, 150, 200, 30);
+        l4.setBounds(90, 150, 200, 30);
 
-        l5.setBounds(80, 190, 200, 30);
+        l5.setBounds(90, 190, 200, 30);
 
-        l6.setBounds(80, 230, 200, 30);
+        l6.setBounds(90, 230, 200, 30);
 
-        l7.setBounds(80, 270, 200, 30);
+        l7.setBounds(90, 270, 200, 30);
 
-        l8.setBounds(80, 310, 200, 30);
+        l8.setBounds(90, 310, 200, 30);
 
-        tf1.setBounds(300, 70, 200, 30);
+        textField1.setBounds(300, 70, 200, 30);
 
         tf2.setBounds(300, 110, 200, 30);
 
@@ -114,11 +108,11 @@ public class RegistrationView extends JFrame
 
         p2.setBounds(300, 190, 200, 30);
 
-        tf5.setBounds(300, 230, 200, 30);
+        textField5.setBounds(300, 230, 200, 30);
 
         tf6.setBounds(300, 270, 200, 30);
 
-        tf7.setBounds(300, 310, 200, 30);
+        textField7.setBounds(300, 310, 200, 30);
 
         btn1.setBounds(50, 350, 100, 30);
 
@@ -136,11 +130,11 @@ public class RegistrationView extends JFrame
 
         add(l2);
 
-        add(tf1);
+        add(textField1);
 
         add(l3);
 
-        add(tf2);
+        add(textField2);
 
         add(l4);
 
@@ -152,15 +146,15 @@ public class RegistrationView extends JFrame
 
         add(l6);
 
-        add(tf5);
+        add(textField5);
 
         add(l7);
 
-        add(tf6);
+        add(textField6);
 
         add(l8);
 
-        add(tf7);
+        add(textField7);
 
         add(btn1);
 
@@ -170,51 +164,37 @@ public class RegistrationView extends JFrame
         add(l9);
 
     }
-	void addSubmitListener(ActionListener listenForCalcButton){
+	void addSubmitListener(ActionListener listenRegisterButton){
 		
-		btn1.addActionListener(listenForCalcButton);
-		
-	}
-	 //********* Added listener for clear
-	void clearListener(ActionListener listenForCalcButton){
-		
-		btn2.addActionListener(listenForCalcButton);
+		btn1.addActionListener(listenRegisterButton);
 		
 	}
-	
-	void closeListener(ActionListener listenForCalcButton){
-		
-		btn3.addActionListener(listenForCalcButton);
-		
-	}
+ 
 
 	String getUserName()
 	{
-		return tf1.getText();
+		return textField1.getText();
 	}
 String getEmail(){
 		
-		return tf2.getText();
+		return textField2.getText();
 		
 	}
 String getAddress(){
 	
-	return tf5.getText();
+	return textField5.getText();
 	
 }
 String getGender(){
 	
-	return tf6.getText();
+	return textField6.getText();
 	
 }
 String getPhone(){
 	
-	return tf7.getText();
+	return textField7.getText();
 	
 }
-	String getPassowrd()
-	{
-		return p1.getText();
-	}
+	
   }
  
