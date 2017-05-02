@@ -50,6 +50,7 @@ final String PASS = "";
 		// TODO Auto-generated catch block
 		e1.printStackTrace();
 	}
+     int value = 1;
      String sql = "insert into item (userid,itemname,itemdesc,category,minprice,picture) values("+new User().getUserId()+",\""+name+"\",\"" + item_desc+"\",\"" +cat+"\",\""+min_price+"\",?);";
      System.out.println(sql);
      InputStream inputStream;
@@ -88,11 +89,15 @@ final String PASS = "";
 			String name = rs.getString("itemname");
 			String desc=rs.getString("itemdesc");
 			 byte[] img = rs.getBytes("picture");
+			 
+			 System.out.println(sellerid);
 
-				i.set_itemname(name);
-				i.set_sellerid(sellerid);
-i.set_itemdesc(desc);
-i.set_picture(img);
+			i.set_itemname(name);
+			i.set_sellerid(sellerid);
+			i.set_itemdesc(desc);
+			i.set_picture(img);
+			
+			
 		 
 		}
 	} catch (SQLException e) {
